@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import { Button, FormControl, Input, InputLabel } from '@mui/material';
+
 
 function App() {
   const [todos, setTodos] = useState(['Take dogs for a walk', 'Take the rubbish out']);
@@ -11,15 +13,25 @@ function App() {
     setTodos([...todos, input]);
 
     //clear up the input after clicking the Add Todo
-    setInput(''); 
+    setInput('');
   }
 
   return (
     <div className="App">
       <h1>Hello World</h1>
       <form>
-        <input value={input} onChange={event => setInput(event.target.value)} />
-        <button onClick={addTodo}>Add ToDo</button>
+
+        <FormControl>
+          <InputLabel>Write a Todo</InputLabel>
+          <Input value={input} onChange={event => setInput(event.target.value)} />
+        </FormControl>
+        
+        <Button
+          type="submit"
+          onClick={addTodo}
+          variant="contained"
+          disabled={!input}
+        >Add Todo</Button>
 
       </form>
 
