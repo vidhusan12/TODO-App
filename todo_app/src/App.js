@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { Button, FormControl, Input, InputLabel } from '@mui/material';
+import Todo from './components/Todo';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <InputLabel>Write a Todo</InputLabel>
           <Input value={input} onChange={event => setInput(event.target.value)} />
         </FormControl>
-        
+
         <Button
           type="submit"
           onClick={addTodo}
@@ -37,7 +38,7 @@ function App() {
 
       <ul>
         {todos.map(todo => (
-          <li>{todo}</li>
+          <Todo text={todo} />
         ))}
       </ul>
 
